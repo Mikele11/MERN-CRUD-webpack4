@@ -8,8 +8,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      posts: [],
-	  open: false
+      posts: []
     };
 	this.onDelete = this.onDelete.bind(this);
 	this.onUpdate = this.onUpdate.bind(this);
@@ -51,26 +50,7 @@ class App extends Component {
 		window.updateauthor= this.state.posts[0].author;
 		window.updatedescription= this.state.posts[0].description;
 	}
-   onChange = (e) => {
-    const state = this.state
-    state[e.target.name] = e.target.value;
-    this.setState(state);
-  }
-  
-  	onClick(e){
-    }
-  onSubmit = (e) => {
-    e.preventDefault();
-
-    const { date, author, description } = this.state;
-
-    axios.put('/api/post/'+this.props.expense._id, { date, author, description })
-      .then((result) => {
-      });
-	this.setState({ open: false });
-  }
-
- 	
+	
 //<Update expense={post}/>	
   render() {
     return (
